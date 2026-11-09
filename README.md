@@ -1,3 +1,10 @@
+# Enterprise Dual-Engine HR Analytics ML Pipeline
+
+###  Executive Summary
+*   **The Build:** An end-to-end predictive pipeline built in Python using `Scikit-Learn` to handle simultaneous classification for employee attrition and regression for monthly income.
+*   **Data Strategy:** Engineered a custom object-oriented `ProductionHRTransformer` to inject 5-year tenure time-gates and collapse ordinal sentiment noise into binary indicators, systematically neutralizing data leakage and multi-collinearity.
+*   **Model Decision:** Manually overrode automated accuracy leaderboards to deploy a custom class-weighted Logistic Regression champion, achieving a **61.7% true class sensitivity/recall** to prioritize actionable corporate retention over superficial global accuracy.
+
 ### 1. Data Governance & Architecture
 * **Feature Pruning:** Systematically audited and removed four zero-variance attributes (`EmployeeCount`, `Over18`, `StandardHours`, `EmployeeNumber`) to eliminate computational overhead and dimensional noise.
 * **Leakage-Free Train/Test Partitioning:** Implemented a robust 80/20 train-test split enforced by a global reproducibility seed (`42`). The classification split is explicitly **stratified** against the `Attrition` target to preserve identical minority class distributions across partitions.
